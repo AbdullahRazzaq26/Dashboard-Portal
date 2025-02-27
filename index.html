@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="shortcut icon" href="Assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="Sign-in.css">
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="work">Work</label>
+                <input type="text" id="work" name="work" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <p id="email-error">Email Already Exist</p>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" class="gender" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" class="gender" name="gender" value="female" required> Female</label>
+                    <label><input type="radio" class="gender" name="gender" value="other" required> Other</label>
+                </div>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        
+
+        <div class="already-account">
+            Already have an account? <a href="Login.html">Login here</a>
+        </div>
+
+    </div>
+
+    <script src="Sign-in.js"></script>
+</body>
+
+</html>

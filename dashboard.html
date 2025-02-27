@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="shortcut icon" href="Assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul class="menu">
+            <li onclick="home()">Home</li>
+            <li onclick="profileSection()">Profile</li>
+            <li>Settings</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header" id="header">
+            <h2>Welcome to Your Dashboard</h2>
+        </div>
+        <div class="content" id="content">
+            <div class="posts" id="posts">
+                <h1>Your Posts</h1>
+                <button onclick="addPost()" id="addPost" class="addpost">Add Post</button>
+            </div>
+        </div>
+
+
+
+        <div class="profile-section" id="profile-section">
+            <div class="profile-header">
+                <div class="profile-pic">
+                    <img src="profile male.webp" alt="Profile Picture">
+                </div>
+                <h2>John Doe</h2>
+                <p class="email">johndoe@example.com</p>
+            </div>
+            <div class="profile-details">
+                <div class="detail"><span>Password:</span> ********</div>
+                <div class="detail"><span>Gender:</span> Male</div>
+            </div>
+        </div>
+
+
+
+
+        <div class="logout-popup" id="logoutPopup">
+            <div class="logout-box">
+                <h2>Are you sure?</h2>
+                <p>Do you really want to log out? This action cannot be undone.</p>
+                <div class="logout-buttons">
+                    <button class="cancel-btn" onclick="closeLogoutPopup()">Cancel</button>
+                    <button class="confirm-btn" onclick="confirmLogout()">Logout</button>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+    </div>
+
+    <div class="popup" id="postPopup">
+        <h3>Add a Post</h3>
+        <input type="text" placeholder="Title" id="postPopupTitle">
+        <textarea placeholder="Write something..." id="postPopupContent"></textarea>
+        <div class="btn-container">
+            <button class="close-btn" onclick="closePostPopup()">Close</button>
+            <button class="submit-btn" id="sudmitPost" onclick="submitPost()">Post</button>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a, #1e293b);
+    color: white;
+    margin: 0;
+}
+.container {
+    background: #111827;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+    width: 400px;
+    text-align: center;
+    transition: 0.3s;
+}
+.container:hover {
+    transform: scale(1.02);
+}
+.container h2 {
+    margin-bottom: 20px;
+    color: #60a5fa;
+    font-size: 24px;
+    font-weight: 600;
+}
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 94%;
+    padding: 12px;
+    border: 2px solid #60a5fa;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #0f172a;
+    color: white;
+    transition: 0.3s;
+}
+.form-group input:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: #60a5fa;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #3b82f6;
+    transform: scale(1.05);
+}
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+.register-link a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: bold;
+}
+.register-link a:hover {
+    text-decoration: underline;
+}
+#email-error {
+    color: red;
+    font-size: 14px; 
+    font-weight: bold; 
+    margin-top: 15px; 
+    display: none;
+}
