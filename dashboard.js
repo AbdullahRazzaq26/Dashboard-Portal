@@ -1,69 +1,105 @@
-if (localStorage.getItem('login') == "true") {
-    window.location.href = 'dashboard.html'
-} else {
-    window.location.href = 'Login.html'
+if (!localStorage.getItem('login')) {
+    window.location.href = 'Login.html';
 }
 
 var postPopup = document.getElementById("postPopup")
 var postPopupContent = document.getElementById("postPopupContent")
 var postPopupTitle = document.getElementById("postPopupTitle")
 var posts = document.getElementById("posts")
-var finalPost = JSON.parse(localStorage.getItem("finalPost")) || []
-var header = document.getElementById("header")
 var content = document.getElementById("content")
 var profile = document.getElementById("profile-section")
-
-// var userData = JSON.parse(localStorage.getItem("userData")) || {};
 var userData = JSON.parse(localStorage.getItem("loggedInUser")) || {};
+var userName = userData.name;
+var userEmail = userData.email;
+var userPassword = userData.password;
+var userGender = userData.gender;
+var popupeffect = document.getElementById("popup-effect");
+displayPosts()
 
 
-if (userData.name) {
-    var userName = userData.name;
-    var userEmail = userData.email;
-    var userPassword = userData.password;
-    var userGender = userData.gender;
-    
-    header.innerHTML = `<h1> Welcome ${userName}</h1>`;
-}
-
-
-// for (let i = 0; i < userData.length; i++) {
-
-//     var userName = userData[i].name;
-//     var userEmail = userData[i].email;
-//     var userPassword = userData[i].password;
-//     var userGender = userData[i].gender;
-
-//     console.log(userName);
-//     console.log(userEmail);
-//     console.log(userPassword);
-//     console.log(userGender);
-// }
-// header.innerHTML = `<h1> Welcome ${userName}`
-
+var header = document.getElementById("header")
+header.innerHTML = `<h1> Welcome ${userName}</h1>`;
 
 
 function addPost() {
     postPopup.style.display = "block"
+    popupeffect.style.display = "block"
 }
+
 function submitPost() {
+    popupeffect.style.display = "none"
     postPopup.style.display = "none"
     var Posts = {
         postTitle: postPopupTitle.value,
         postContent: postPopupContent.value,
     }
-    posts.innerHTML += `<div class="post"><h4>${Posts.postTitle}</h4> <p>${Posts.postContent}</p></div>`
+
+    var finalPost = JSON.parse(localStorage.getItem(userEmail)) || []
     finalPost.push(Posts)
-    localStorage.setItem("finalPost", JSON.stringify(finalPost))
+    localStorage.setItem(userEmail, JSON.stringify(finalPost))
     console.log(finalPost);
+
+    displayPosts()
+} 
+
+function displayPosts() {
+    posts.innerHTML = `                <h1>Your Posts</h1>
+                <button onclick="addPost()" id="addPost" class="addpost">Add Post</button>`;
+    var finalPost = JSON.parse(localStorage.getItem(userEmail)) || []
+
+    for (let i = 0; i < finalPost.length; i++) {
+        posts.innerHTML += `
+
+            <div class="allPosts">
+        <div class="post">
+            <div class="post-header">
+                <img src="profile.webp" alt="User Profile" class="profile-pic">
+                <div class="user-info">
+                    <h5 class="username">${userName}</h5>
+                    <span class="post-time">2 hours ago</span>
+                </div>
+            </div>
+
+            <h4>${finalPost[i].postTitle}</h4>
+            <p>${finalPost[i].postContent}</p>
+
+            <div class="post-actions">
+                <button class="action-btn like-btn"><i class="fas fa-thumbs-up"></i> Like</button>
+                <button class="action-btn comment-btn"><i class="fas fa-comment"></i> Comment</button>
+                <button class="action-btn share-btn"><i class="fas fa-share"></i> Share</button>
+                <button class="action-btn delete-btn" onclick="deletePost(${i})"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+        `; 
+    }
 }
+
+function deletePost(index) {
+    var finalPost = JSON.parse(localStorage.getItem(userEmail)) || []    
+    finalPost.splice(index, 1)
+    localStorage.setItem(userEmail, JSON.stringify(finalPost))
+    displayPosts()
+}
+
+
+window.onload = function () {
+    displayPosts();
+};
+
 function closePostPopup() {
     postPopup.style.display = "none"
+    popupeffect.style.display = "none"
+
 }
+
 function home() {
     profile.style.display = "none"
     content.style.display = "flex"
 }
+
 function profileSection() {
     content.style.display = "none"
     profile.style.display = "block"
@@ -80,7 +116,6 @@ function profileSection() {
             </div>`
 }
 
-
 function logout() {
     document.getElementById("logoutPopup").classList.add("active");
 }
@@ -94,4 +129,3 @@ function confirmLogout() {
     localStorage.removeItem('loggedInUser');
     window.location.href = "login.html";
 }
-

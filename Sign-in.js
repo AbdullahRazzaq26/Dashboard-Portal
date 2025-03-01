@@ -43,6 +43,7 @@ form.addEventListener("submit", function (event) {
     allData.push(userData);
     localStorage.setItem("userData", JSON.stringify(allData));
     localStorage.setItem("loggedInUser", JSON.stringify(userData));    
+    localStorage.setItem("login", "true");
     window.location.href = `dashboard.html`
     console.log(allData);
     password.value = "";

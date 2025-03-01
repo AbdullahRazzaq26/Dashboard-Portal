@@ -7,6 +7,8 @@
     <title>Dashboard</title>
     <link rel="shortcut icon" href="Assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -33,17 +35,6 @@
 
 
         <div class="profile-section" id="profile-section">
-            <div class="profile-header">
-                <div class="profile-pic">
-                    <img src="profile male.webp" alt="Profile Picture">
-                </div>
-                <h2>John Doe</h2>
-                <p class="email">johndoe@example.com</p>
-            </div>
-            <div class="profile-details">
-                <div class="detail"><span>Password:</span> ********</div>
-                <div class="detail"><span>Gender:</span> Male</div>
-            </div>
         </div>
 
 
@@ -59,22 +50,27 @@
                 </div>
             </div>
         </div>
-        
+
 
 
 
 
     </div>
-
-    <div class="popup" id="postPopup">
-        <h3>Add a Post</h3>
-        <input type="text" placeholder="Title" id="postPopupTitle">
-        <textarea placeholder="Write something..." id="postPopupContent"></textarea>
-        <div class="btn-container">
-            <button class="close-btn" onclick="closePostPopup()">Close</button>
-            <button class="submit-btn" id="sudmitPost" onclick="submitPost()">Post</button>
+    <div class="popup-effect" id="popup-effect">
+        <div class="popup" id="postPopup">
+            <h3>Add a Post</h3>
+            <input type="text" placeholder="Title" id="postPopupTitle">
+            <textarea placeholder="Write something..." id="postPopupContent"></textarea>
+            <div class="btn-container">
+                <button class="close-btn" onclick="closePostPopup()">Close</button>
+                <button class="submit-btn" id="sudmitPost" onclick="submitPost()">Post</button>
+            </div>
         </div>
     </div>
+
+
+
+
 
     <script src="dashboard.js"></script>
 </body>
