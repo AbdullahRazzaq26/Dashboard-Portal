@@ -252,6 +252,7 @@ body {
     margin: 30px auto;
     transition: all 0.3s ease-in-out;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    display: none;
 }
 
 .profile-section:hover {
